@@ -1,0 +1,53 @@
+#!/usr/bin/python
+# -*- encoding: utf-8 -*-
+'''
+@File    :   01 server.py
+@Time    :   2023/09/20 22:54:30
+@Author  :   GhostC 
+@Version :   1.0
+'''
+import logging
+from logging.handlers import RotatingFileHandler
+import socket
+
+def log_config():
+  LOG_FORMAT = '[%(asctime)s][%(levelname)s]: %(message)s'
+  level = logging.INFO
+  logging.basicConfig(level=level, format=LOG_FORMAT)
+  #创建RotatingFileHandler对象,满2MB为一个文件，共备份3个文件
+  log_file_handler = RotatingFileHandler(filename='test.log', maxBytes=2*1024*1024, backupCount=3, encoding='utf-8')
+  # 设置日志打印格式
+  formatter = logging.Formatter(LOG_FORMAT)
+  log_file_handler.setFormatter(formatter)
+  logging.getLogger('').addHandler(log_file_handler)
+
+
+def socket_web_server():
+    sk = socket.socket()
+    sk.bind(('127.0.0.1', 8889))
+    sk.listen(5)
+    logging.info('server is waiting...')
+    while 1:
+        conn, addr = sk.accept()
+        data = conn.recv(1024)
+        logging.info(f'conn--->{conn}, addr--->{addr}, data--->{data}')
+        
+        # 路径分支
+        path = data.decode().split('\r\n')[0].split(' ')[1]
+        if path == '/index' or path == '/':
+            conn.send(b"HTTP/1.1 200 ok\r\nContent-Type:text/html\r\n\r\n<h1>index</h1><img height='600' width='800' src='https://ts1.cn.mm.bing.net/th/id/R-C.22cdb21060f95297035a380467123768?rik=ZZ5YeI3loyMu0w&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1307%2f10%2fc0%2f23166997_1373443405186.jpg&ehk=UuR5odrdPxwmlbjY0C5WGXyxSJdyN%2b1aYi%2bnwiG6DPQ%3d&risl=&pid=ImgRaw&r=0'>")
+        elif path == '/login':
+            conn.send(b"HTTP/1.1 200 ok\r\n\r\nlogin...")
+        else:
+            conn.send(b"HTTP/1.1 404 not fount\r\n\r\n404!")
+        logging.info('响应完成')
+        conn.close()
+
+def main():
+    log_config()
+    socket_web_server()
+
+if __name__ == '__main__':
+    main()
+
+
