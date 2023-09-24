@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>注册页面</h3>
+    <form action="http://127.0.0.1:8889/index" method="post">
+        <p>姓名: <input type="text" name="user"></p>
+        <p>密码: <input type="password" name="pwd"></p>
+        <p>
+            爱好:
+            篮球 <input type="checkbox" name="hobby" value="lanqiu">
+            足球 <input type="checkbox" name="hobby" value="足球">
+        </p>
+        <p>
+            性别:
+            男 <input type="radio" name="gender" value="male">
+            女 <input type="radio" name="gender" value="female">
+        </p>
+        <p>籍贯
+            <select name="province" id="">
+                <option value="guizhou">贵州省</option>
+                <option selected value="sichuan">四川省</option>
+                <option value="yunnan">云南省</option>
+            </select>
+        </p>
+        <p><input type="submit" value="登录"></p>
+    </form>
+</body>
+</html>

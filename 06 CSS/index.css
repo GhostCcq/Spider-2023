@@ -1,0 +1,66 @@
+/* 标签选择器  */
+
+
+/* 
+div {
+    font-size: 60px;
+    font-weight: 900;
+    font-style: italic;
+    margin: 10px 0;
+} */
+
+
+/* id选择器 */
+
+#i1 {
+    font-size: 80px;
+    font-weight: 100;
+}
+
+#i2 {
+    font-size: 150px;
+    font-weight: 500;
+}
+
+#i3 {
+    font-size: 300px;
+    font-weight: 900;
+}
+
+
+/* 类选择器 */
+
+.c1 {
+    background-color: aqua;
+}
+
+.c2 {
+    background-color: black;
+}
+
+.c3 {
+    font-size: 50px;
+    font-weight: 300;
+    color: red;
+}
+
+
+/* 后代选择器 */
+
+.a1 .q1 {
+    background-color: rebeccapurple;
+}
+
+.a2 .q1 {
+    font-size: 60px;
+    color: green;
+}
+
+.yxlm {
+    font-size: 100px;
+    font-style: italic;
+    font-family: 'Times New Roman';
+    font-weight: bolder;
+    text-align: center;
+    color: rgb(72, 56, 160);
+}
