@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+    // 函数调用，顺序没有影响   
+    foo()
+
+    // 函数声明
+    function foo(){
+        console.log('foo...')
+    }  
+
+    function add(x,y){
+        return x+y
+    }
+    console.log(add(3,4))   
+
+    // 匿名函数
+    // (function (a,b){
+    //     return a * b 
+    // })(3,5)
+    console.log((function (a,b){
+        return a * b 
+    })(3,5))
+    
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

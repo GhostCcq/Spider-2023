@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var arr = [1, 2, 3, 4, 5]
+        console.log(arr[2])
+        console.log(arr.slice(2,4))
+        console.log(arr.slice(2))
+
+        // 在数组末尾插入值和删除值
+        arr.push(6)
+        console.log(arr)
+        arr.pop()
+        console.log(arr)
+
+        // 在数组首尾插入值和删除值
+        arr.unshift(0)
+        console.log(arr)
+        arr.shift()
+        console.log(arr)
+
+        // splice 方法： 删除 插入 替换
+        var arr2 = ['a','b','c','d','e']
+        // arr2.splice(1,2)  // 从索引1位置开始删除，删除2个元素
+
+        // arr2.splice(1,0,'B') // 当第二个参数为0时表示插入
+        // arr2.splice(1,0,'A', 'CC')
+
+        arr2.splice(1,2,'B','C')  // 先删除再替换
+        console.log('arr2--->', arr2)
+        // 翻转
+        arr.reverse()
+        console.log(arr)
+
+        // 内置高阶方法  filter map
+        // sum = [2, 3, 4, 5, 6]
+        // function fileterOuShu(item){
+        //     return item % 2 === 0;
+        // }
+
+        // ret = sum.filter(fileterOuShu)
+        // 
+
+        sum = [2, 3, 4, 5, 6]
+        // 将sum 中的偶数保留
+        var ret = sum.filter(function (item){
+            return item %2 === 0;
+        })
+        console.log(ret)
+        
+        
+         // 求sum中每个数的平方
+         var ret = sum.map(function (item){
+            return item*item;
+        })
+        console.log(ret)       
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
